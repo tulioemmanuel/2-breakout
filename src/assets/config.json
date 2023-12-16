@@ -1,0 +1,10 @@
+{
+    "title": "Breakout",
+    "log_level":"INFO",
+    "screen_width": 600,
+    "screen_height": 400,
+    "bg_r": 255,
+    "bg_g": 200,
+    "bg_b": 100,
+    "FPS": 30
+}
