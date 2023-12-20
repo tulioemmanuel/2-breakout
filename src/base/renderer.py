@@ -29,9 +29,12 @@ class Renderer(System):
         screen.fill(
             (self.settings["bg_r"], self.settings["bg_g"], self.settings["bg_b"])
         )
+    
+    def set_drawables(self,drawables):
+        self.drawables = pygame.sprite.Group(drawables)
 
     def draw(self):
         self._clear()
-
+        self.drawables.draw(self.screen)
         pygame.display.flip()
         pygame.display.update()

@@ -1,10 +1,22 @@
 {
     "title": "Breakout",
-    "log_level":"INFO",
+    "log_level": "INFO",
     "screen_width": 600,
     "screen_height": 400,
     "bg_r": 255,
     "bg_g": 200,
     "bg_b": 100,
-    "FPS": 30
+    "FPS": 30,
+    "paddle_width": 100,
+    "paddle_height": 10,
+    "paddle_color_r": 255,
+    "paddle_color_g": 255,
+    "paddle_color_b": 255,
+    "paddle_vx": 10,
+    "paddle_vertical_offset": 20,
+    "ball_size": 10,
+    "ball_speed": 10,
+    "ball_color_r": 255,
+    "ball_color_g": 255,
+    "ball_color_b": 255   
 }
