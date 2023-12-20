@@ -30,10 +30,12 @@ class Paddle(Entity):
         self.rect.x += self.vx
 
     def move_left(self):
-        self.vx -= self.settings["paddle_vx"]
+        if self.rect.x + self.vx >= 0:
+            self.vx -= self.settings["paddle_vx"]
 
     def move_right(self):
-        self.vx += self.settings["paddle_vx"]
+        if self.rect.x + self.rect.w + self.vx >= self.screen.get_width():
+            self.vx += self.settings["paddle_vx"]
 
     def move_touch(self, pos):
         if pos[0] >= self.screen.get_width()/2:
