@@ -27,19 +27,21 @@ class Paddle(Entity):
 
     def update(self, *args, **kwargs) -> None:
         super().update(*args, **kwargs)
-        self.rect.x += self.vx
+        if (
+            self.rect.x + self.vx >= 0
+            and self.rect.x + self.rect.w + self.vx <= self.screen.get_width()
+        ):
+            self.rect.x += self.vx
 
     def move_left(self):
-        if self.rect.x + self.vx >= 0:
-            self.vx -= self.settings["paddle_vx"]
+        self.vx -= self.settings["paddle_vx"]
 
     def move_right(self):
-        if self.rect.x + self.rect.w + self.vx >= self.screen.get_width():
-            self.vx += self.settings["paddle_vx"]
+        self.vx += self.settings["paddle_vx"]
 
     def move_touch(self, pos):
-        if pos[0] >= self.screen.get_width()/2:
-            self.move_right()            
+        if pos[0] >= self.screen.get_width() / 2:
+            self.move_right()
         else:
             self.move_left()
 

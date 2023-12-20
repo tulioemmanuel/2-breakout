@@ -18,5 +18,10 @@
     "ball_speed": 10,
     "ball_color_r": 255,
     "ball_color_g": 255,
-    "ball_color_b": 255   
+    "ball_color_b": 255,
+    "brick_color_r": 255,
+    "brick_color_g": 255,
+    "brick_color_b": 255,
+    "brick_width": 30,
+    "brick_height": 15
 }

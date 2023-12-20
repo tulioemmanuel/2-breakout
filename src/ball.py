@@ -47,16 +47,23 @@ class Ball(Entity):
             self.change_direction(paddle[0])
             return
 
-        if self.rect.y <= 0 or self.rect.y + self.rect.h > pygame.display.get_surface().get_height():
+        if (
+            self.rect.y <= 0
+            or self.rect.y + self.rect.h > pygame.display.get_surface().get_height()
+        ):
             self.vy *= -1
-        elif self.rect.x <= 0 or self.rect.x + self.rect.w > pygame.display.get_surface().get_width():
+        elif (
+            self.rect.x <= 0
+            or self.rect.x + self.rect.w > pygame.display.get_surface().get_width()
+        ):
             self.vx *= -1
-        
 
     def change_direction(self, paddle):
         paddle_hit_x = paddle.rect.x
         ball_hit_x = self.rect.x
-        percentage = (paddle.rect.w + paddle_hit_x - ball_hit_x) / (paddle.rect.w)
-        self.rect.x = paddle.rect.x + self.rect.w
-        self.vx = self.ball_speed * math.cos(percentage)
-        self.vy = self.ball_speed * math.sin(percentage)
+        percentage = (ball_hit_x - paddle_hit_x) / paddle.rect.w
+        if percentage <= 0.5:
+            self.vx = -1 * self.ball_speed * math.cos(percentage)
+        else:
+            self.vx = self.ball_speed * math.cos(percentage)
+        self.vy = -1 * self.ball_speed * math.sin(percentage)

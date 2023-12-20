@@ -3,6 +3,7 @@ from base.game import Game
 from base.configuration import Configuration
 from paddle import Paddle
 from ball import Ball
+from brick import Brick
 
 
 class Breakout(Game):
@@ -20,7 +21,14 @@ class Breakout(Game):
             - self.settings["paddle_vertical_offset"],
         )
         self.ball = Ball(self)
-        self.renderer.set_drawables([self.player,self.ball])
+        self.bricks = [
+            Brick(x=i % self.renderer.screen.get_width(), y=(i//100) * 3)
+            for i in range(
+                0, self.renderer.screen.get_width() * 10, self.settings["brick_width"] + 10
+            )
+        ]
+
+        self.renderer.set_drawables([self.player, self.ball, self.bricks])
 
     def update(self):
         self.player.update()
