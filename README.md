@@ -1,2 +1,4 @@
 # 2-breakout
-Breakout Clone
+TODO:
+- Melhorar contatos
+- Remover bugs de redirecionamento

@@ -20,13 +20,13 @@ class Breakout(Game):
             y=self.renderer.screen.get_height()
             - self.settings["paddle_vertical_offset"],
         )
-        self.ball = Ball(self)
         self.bricks = [
             Brick(x=i % self.renderer.screen.get_width(), y=(i//100) * 3)
             for i in range(
                 0, self.renderer.screen.get_width() * 10, self.settings["brick_width"] + 10
             )
         ]
+        self.ball = Ball(self)
 
         self.renderer.set_drawables([self.player, self.ball, self.bricks])
 

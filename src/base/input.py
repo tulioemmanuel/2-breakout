@@ -1,5 +1,4 @@
 import pygame
-import logging
 from base.system import System
 
 
@@ -10,7 +9,6 @@ class Input(System):
 
     def setup(self):
         super().setup()
-        logging.info("Input initialized")
 
     def get_input(self):
         for event in pygame.event.get():

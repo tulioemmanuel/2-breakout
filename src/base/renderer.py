@@ -1,5 +1,4 @@
 import pygame
-import logging
 from base.system import System
 from base.configuration import Configuration
 
@@ -22,7 +21,6 @@ class Renderer(System):
 
         self.font = pygame.font.SysFont("Comic Sans MS", 24)
 
-        logging.info("Renderer initialized")
 
     def _clear(self):
         screen = self.screen

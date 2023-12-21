@@ -20,6 +20,7 @@ class Ball(Entity):
         )
         self.game = game
         self.paddles = Group(game.player)
+        self.bricks = Group(game.bricks)
         self.image = surface
         self.rect = self.image.get_rect()
         self.ball_speed = int(self.settings["ball_speed"])
@@ -43,9 +44,13 @@ class Ball(Entity):
 
     def check_collision(self):
         paddle = pygame.sprite.spritecollide(self, self.paddles, False)
+        brick = pygame.sprite.spritecollide(self, self.bricks, True)
         if paddle:
             self.change_direction(paddle[0])
             return
+        elif brick:
+            self.change_direction(brick[0])
+            return            
 
         if (
             self.rect.y <= 0
